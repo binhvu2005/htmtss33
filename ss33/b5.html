@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function addBook(title, author, publishedYear, isAvailable) {
+        Library.newbook = {
+          title: title,
+          author: author,
+          publishedYear: publishedYear,
+          isAvailable: isAvailable,
+          displayinfo: function () {
+            return `
+            tiêu đề: ${this.title}
+            tác giả: ${this.author}
+            năm xuất bản: ${this.publishedYear}
+            trạng thái : ${this.isAvailable}
+
+            -----------------------------------
+            `;
+          },
+          borrow: function(){
+            return this.isAvailable=false
+          },
+          returnBook: function(){
+            return this.isAvailable=true
+          },
+        };
+      }
+      let Library = {
+        book1: {
+          title: "sách 1",
+          author: "tác giả 1",
+          publishedYear: 2000,
+          isAvailable: true,
+          displayinfo: function () {
+            return `
+            tiêu đề: ${this.title}
+            tác giả: ${this.author}
+            năm xuất bản: ${this.publishedYear}
+            trạng thái : ${this.isAvailable}
+            -----------------------------------
+            `;
+          },
+          borrow: function(){
+            return this.isAvailable=false
+          },
+          returnBook: function(){
+            return this.isAvailable=true
+          },
+        },
+        book2: {
+          title: "sách 2",
+          author: "tác giả 2",
+          publishedYear: 2001,
+          isAvailable: true,
+          displayinfo: function () {
+            return `
+            tiêu đề: ${this.title}
+            tác giả: ${this.author}
+            năm xuất bản: ${this.publishedYear}
+            trạng thái : ${this.isAvailable}
+            -----------------------------------
+            `;
+          },
+          borrow: function(){
+            return this.isAvailable=false
+          },
+          returnBook: function(){
+            return this.isAvailable=true
+          },
+        },
+      };
+      let key;
+      do{
+        console.log('1. thêm mới' );
+        console.log('2. xem sách' );
+        console.log('3. mượn sách' );
+        console.log('4. trả sách' );
+        console.log('5. check sách' );
+         key = +prompt("nhập lựa chọn");
+      switch (key) {
+        case 1:
+          let newtitle = prompt("nhập tiêu đề mới ");
+          let newauthor = prompt("nhập tác giả mới ");
+          let newpublishedYear = prompt("nhập năm xuất bản mới ");
+          let newisAvailable = prompt("nhập trạng thái  mới ");
+          addBook(newtitle, newauthor, newpublishedYear, newisAvailable);
+
+          break;
+        case 2:
+            for (let a in Library){
+            console.log(Library[a].displayinfo());
+          }
+          break;
+          case 3:
+            let a=prompt('mượn sách nào')
+            for(let i in Library){
+                let flag=0
+                if(a==Library[i].title){
+                    Library[i].borrow()
+                    console.log('mượn sách thành công');
+                    flag=1
+                    break
+                }
+                if(flag==0) console.log('không có sách để mượn');
+            }
+            break
+            case 4:
+            let b=prompt('trả sách nào')
+            for(let i in Library){
+                let check=0
+                if(a==Library[i].title){
+                    Library[i].returnBook()
+                    console.log('trả sách thành công');
+                    check=1
+                    break
+                }
+                if(check==0)console.log('trả sách thất bại');
+
+            }
+            break
+        default:
+          break;
+      }
+      }while(1==1)
+    </script>
+  </body>
+</html>

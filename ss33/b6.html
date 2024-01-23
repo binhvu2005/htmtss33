@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Job {
+    constructor(id, title, description, completed) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.completed = completed;
+    }
+}
+
+let jobs = [];
+
+function addJob() {
+    let id = prompt("Nhập id công việc:");
+    let title = prompt("Nhập tiêu đề công việc:");
+    let description = prompt("Nhập mô tả công việc:");
+    let completed = prompt("Công việc đã hoàn thành (true/false):").toLowerCase() === 'true';
+
+    let newJob = new Job(id, title, description, completed);
+    jobs.push(newJob);
+
+    console.log("Công việc đã được thêm mới!");
+}
+
+function displayJobs() {
+    console.log("Danh sách công việc:");
+    jobs.forEach(job => {
+        console.log(`ID: ${job.id}, Tiêu đề: ${job.title}, Mô tả: ${job.description}, Hoàn thành: ${job.completed}`);
+    });
+}
+
+function searchJobById() {
+    let searchId = prompt("Nhập ID công việc cần tìm kiếm:");
+    let foundJob = jobs.find(job => job.id === searchId);
+
+    if (foundJob) {
+        console.log("Thông tin công việc:");
+        console.log(`ID: ${foundJob.id}, Tiêu đề: ${foundJob.title}, Mô tả: ${foundJob.description}, Hoàn thành: ${foundJob.completed}`);
+    } else {
+        console.log("Không tìm thấy công việc!");
+    }
+}
+
+while (true) {
+    let choice = prompt("Chọn 1 để thêm công việc, chọn 2 để hiển thị danh sách công việc, chọn 3 để tìm kiếm công việc theo ID, chọn 4 để thoát:");
+
+    switch (choice) {
+        case '1':
+            addJob();
+            break;
+        case '2':
+            displayJobs();
+            break;
+        case '3':
+            searchJobById();
+            break;
+        case '4':
+            console.log("Chương trình kết thúc.");
+            process.exit(0);
+        default:
+            console.log("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+    }
+}
+
+    </script>
+</body>
+</html>

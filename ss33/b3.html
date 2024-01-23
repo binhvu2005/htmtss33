@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let phone = {
+        contact1: {
+          name: "khấc",
+          phone: 123,
+          email: "khac@123.com",
+          displayinfo: function () {
+            return `
+            Tên: ${this.name}
+            sdt: ${this.phone}
+            Email: ${this.email}
+            -------------------------
+            `;
+          },
+        },
+        contact2: {
+          name: "ngu",
+          phone: 1232222,
+          email: "ngu@123.com",
+          displayinfo: function () {
+            return `
+            Tên: ${this.name}
+            sdt: ${this.phone}
+            Email: ${this.email}
+            -------------------------
+            `;
+          },
+        },
+      };
+      console.log(phone.contact1.displayinfo());
+      console.log(phone.contact2.displayinfo());
+    </script>
+  </body>
+</html>

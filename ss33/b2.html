@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let phone ={
+            contact1: {
+                name: 'khấc',
+                phone :123,
+                email:'khac@123.com'
+            },
+        
+            contact2: {
+                name: 'ngu',
+                phone :122233,
+                email:'ngu@gmail.com'
+            },
+        };
+        for(let i in phone){
+            console.log('tên: ',phone[i].name);
+            console.log('sdt: ',phone[i].phone);
+            console.log('email: ',phone[i].email);
+            console.log('---------------------');
+        }
+    </script>
+</body>
+</html>

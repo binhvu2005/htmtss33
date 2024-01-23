@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function addBook(title, author,publishedYear) {
+        Library.newbook={
+            title : title,
+            author : author,
+            publishedYear: publishedYear,
+            displayinfo: function () {
+            return `
+            tiêu đề: ${this.title}
+            tác giả: ${this.author}
+            năm xuất bản: ${this.publishedYear}
+            -----------------------------------
+            `;
+          },
+        }
+      }
+      let Library = {
+        book1:{
+            title: 'sách 1',
+            author: 'tác giả 1',
+            publishedYear: 2000,
+            displayinfo: function () {
+            return `
+            tiêu đề: ${this.title}
+            tác giả: ${this.author}
+            năm xuất bản: ${this.publishedYear}
+            -----------------------------------
+            `;
+          },
+        },
+        book2:{
+            title: 'sách 2',
+            author: 'tác giả 2',
+            publishedYear: 2001,
+            displayinfo: function () {
+            return `
+            tiêu đề: ${this.title}
+            tác giả: ${this.author}
+            năm xuất bản: ${this.publishedYear}
+            -----------------------------------
+            `;
+          },
+        },
+    }
+    let newtitle=prompt('nhập tiêu đề mới ')
+    let newauthor=prompt('nhập tác giả mới ')
+    let newpublishedYear=prompt('nhập năm xuất bản mới ')
+    addBook(newtitle, newauthor,newpublishedYear)
+    for(let i in Library){
+            console.log(Library[i].displayinfo());
+        }
+    </script>
+</body>
+</html>
